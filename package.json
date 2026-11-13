@@ -1,0 +1,7 @@
+{
+  "name": "dronpy",
+  "version": "1.0.0",
+  "description": "Landing page - DronPy, aplicacion aerea con dron agricola",
+  "private": true,
+  "license": "UNLICENSED"
+}
