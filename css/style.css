@@ -65,10 +65,16 @@ a { color: inherit; }
 
 /* ---------- Hero ---------- */
 .hero {
-  background: radial-gradient(circle at 30% 20%, #2a6b38, var(--verde-oscuro) 70%);
+  position: relative;
+  background-color: var(--verde-oscuro);
+  background-size: cover; background-position: center;
   color: #fff; padding: 64px 0 56px; overflow: hidden;
 }
-.hero-inner { display: grid; grid-template-columns: 1.1fr .9fr; gap: 40px; align-items: center; }
+.hero-overlay {
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at 30% 20%, rgba(42,107,56,.85), rgba(16,46,22,.94) 70%);
+}
+.hero-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1.1fr .9fr; gap: 40px; align-items: center; }
 .eyebrow { display: inline-block; background: rgba(255,255,255,.15); padding: 6px 14px; border-radius: 999px; font-size: 12.5px; font-weight: 700; letter-spacing: .03em; text-transform: uppercase; margin-bottom: 16px; }
 .eyebrow-dark { background: var(--verde-claro); color: var(--verde-oscuro); }
 .hero h1 { font-size: 40px; max-width: 560px; }
@@ -80,16 +86,43 @@ a { color: inherit; }
 .hero-stats span { font-size: 12.5px; color: rgba(255,255,255,.75); }
 .hero-visual { display: flex; justify-content: center; }
 .drone-badge {
-  width: 280px; height: 280px; border-radius: 50%;
-  background: rgba(255,255,255,.08); border: 1.5px solid rgba(255,255,255,.25);
+  width: 300px; height: 300px; border-radius: 50%;
+  background: rgba(255,255,255,.08); border: 4px solid rgba(255,255,255,.3);
+  box-shadow: 0 20px 50px rgba(0,0,0,.35);
   display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
 }
+.drone-badge img { width: 100%; height: 100%; object-fit: cover; }
 @media (max-width: 860px) {
   .hero-inner { grid-template-columns: 1fr; text-align: center; }
   .hero-sub { margin-left: auto; margin-right: auto; }
   .hero-ctas, .hero-stats { justify-content: center; }
   .hero h1 { font-size: 30px; }
-  .drone-badge { width: 200px; height: 200px; margin-top: 8px; }
+  .drone-badge { width: 220px; height: 220px; margin-top: 8px; }
+}
+
+/* ---------- Banners con foto ---------- */
+.banner {
+  position: relative; background-size: cover; background-position: center;
+  padding: 56px 0; color: #fff; text-align: center;
+}
+.banner-overlay { position: absolute; inset: 0; background: linear-gradient(rgba(14,36,18,.72), rgba(14,36,18,.72)); }
+.banner-inner { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; }
+.banner-inner p { color: #fff; font-size: 19px; font-weight: 600; margin: 0; }
+.banner-cta { padding: 80px 0; }
+.banner-cta h2 { color: #fff; font-size: 30px; }
+.banner-cta p { font-size: 17px; margin-bottom: 26px; color: rgba(255,255,255,.9); }
+
+.porque-dron-img {
+  width: 100%; border-radius: var(--radio); box-shadow: var(--sombra);
+  margin-bottom: 20px; aspect-ratio: 16/10; object-fit: cover;
+}
+
+.como-funciona-head { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.como-funciona-img { width: 160px; height: 110px; object-fit: cover; border-radius: var(--radio); box-shadow: var(--sombra); flex-shrink: 0; }
+@media (max-width: 760px) {
+  .como-funciona-head { flex-direction: column; align-items: flex-start; }
+  .como-funciona-img { width: 100%; height: 150px; }
 }
 
 /* ---------- Sections ---------- */
